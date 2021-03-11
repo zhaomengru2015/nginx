@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CORS</title>
+  </head>
+
+  <body>
+    Response: <span id="response"></span>
+  </body>
+
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    $(function () {
+      $.ajax({
+        method: "OPTIONS",
+        //url: 'http://mybackend.com:3000/service',
+        url: "http://10.205.20.9/diagnostics/heartbeat",
+        success: (res) => {
+          $("#response").text(res)
+        },
+        error: (err) => {
+          $("#response").text(err.statusText)
+        },
+      })
+    })
+  </script>
+</html>
