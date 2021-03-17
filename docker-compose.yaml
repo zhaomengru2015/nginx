@@ -8,3 +8,9 @@ services:
       - 8080:80
     volumes:
       - ./default.conf.template:/etc/nginx/templates/default.conf.template
+      - ./index.html:/etc/nginx/html/index.html
+  
+  app:
+    build: .
+    ports:
+      - 3000:3000
